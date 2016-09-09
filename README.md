@@ -5,7 +5,7 @@
 
 ###1. geostack部署脚本
 * 
- * geostack
+  * geostack
   * zabbix-server
   * activemq
   * memcached
@@ -13,7 +13,7 @@
   * `lb`
 
 ###2. geoonline部署脚本
-*
+ * 
   * geoonline
   * `owncloud`
   * `cas`
@@ -25,6 +25,7 @@
   * mysql-server install & setup
 
 ###4. 小白用的配置linux的工具脚本
+ * 
   * oracle-JDK install & setup
   * apache-tomcat6 install & setup
   
