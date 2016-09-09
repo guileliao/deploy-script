@@ -9,12 +9,12 @@
   * activemq
   * memcached
   * mysql
-  * lb
+  * 'lb'
 
 ###2. geoonline部署脚本
   * geoonline
-  * owncloud
-  * cas
+  * 'owncloud'
+  * 'cas'
 
 ###3. cloudstack部署脚本
   * cloudstack-manager node install & setup
