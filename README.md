@@ -17,13 +17,13 @@
   * cas
 
 ###3. cloudstack部署脚本
-  * cloudstack-manager node
-  * cloudstack-compute node
-  * mysql-server
+  * cloudstack-manager node install & setup
+  * cloudstack-compute node install & setup
+  * mysql-server install & setup
 
 ###4. 小白用的配置linux的工具脚本
-  * oracle-JDK
-  * apache-tomcat6
+  * oracle-JDK install & setup
+  * apache-tomcat6 install & setup
   
 ##有问题反馈
 在使用中有任何问题，欢迎反馈给我，可以用以下联系方式跟我交流
