@@ -4,19 +4,22 @@
 本项目是为了方便公司内部实施人员快速部署应用及构建生产环境，项目内使用的全部是兼容linux-bash的脚本工具。
 
 ###1. geostack部署脚本
-  * geostack
+* 
+ * geostack
   * zabbix-server
   * activemq
   * memcached
   * mysql
-  * 'lb'
+  * `lb`
 
 ###2. geoonline部署脚本
+*
   * geoonline
-  * 'owncloud'
-  * 'cas'
+  * `owncloud`
+  * `cas`
 
 ###3. cloudstack部署脚本
+*  
   * cloudstack-manager node install & setup
   * cloudstack-compute node install & setup
   * mysql-server install & setup
