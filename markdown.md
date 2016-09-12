@@ -10,4 +10,8 @@
 ----  
 `----我是分割线`
 
-[百度](http://www.baidu.com)
+[百度](http://www.baidu.com "百度")
+
+![github](image/github-logo.png "github")
+
+[![github](image/github-logo.png)](https://github.com/ "github") 
