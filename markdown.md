@@ -12,6 +12,6 @@
 
 [百度](http://www.baidu.com "百度")
 
-![github](image/github-logo.png "github")
+![github](image/120x120.jpg "我是一张图片")
 
-[![github](image/github-logo.png)](https://github.com/ "github") 
+[![github](image/120x120.jpg)](https://github.com/ "我是一个链接") 
