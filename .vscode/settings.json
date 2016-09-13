@@ -1,0 +1,43 @@
+// 将设置放入此文件中以覆盖默认值和用户设置。
+{
+// 编辑器配置
+
+    // 控制字体大小。
+    "editor.fontSize": 18,
+
+    // 一个制表符等于的空格数。
+    "editor.tabSize": 4,
+
+    // 按 "Tab" 时插入空格。
+    "editor.insertSpaces": true,
+
+    // 控制在多少个字符后编辑器会自动换到下一行。将其设置为 0 则将打开视区宽度换行(自动换行)。将其设置为 -1 则将强制编辑器始终不换行。
+    "editor.wrappingColumn": 300,
+
+// GIT
+
+    // 是否启用了 GIT
+    "git.enabled": true,
+
+    // 可执行 GIT 的路径
+    "git.path": null,
+
+    // 是否已启用自动刷新
+    "git.autorefresh": true,
+
+    // 是否启用了自动提取。
+    "git.autofetch": true,
+
+    // 是否应警告提交长段消息。
+    "git.enableLongCommitWarning": true,
+
+    // 始终允许大型存储库由 Code 托管。
+    "git.allowLargeRepositories": false,
+
+    // 同步 Git 存储库前请先进行确认。
+    "git.confirmSync": false,
+
+    // 控制 git 徽章计数器。
+    "git.countBadge": "all",
+    
+}
