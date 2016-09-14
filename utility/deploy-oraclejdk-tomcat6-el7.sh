@@ -261,8 +261,8 @@ while true;
     done
 }
 echo -e "\e[31m Press 'Enter' key reboot.\e[0m"
-read -t 10
-
+read
+reboot
 
 ##########
 #File end#
