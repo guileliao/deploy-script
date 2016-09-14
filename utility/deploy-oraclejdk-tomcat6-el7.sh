@@ -175,11 +175,11 @@ OS_CHECK
 #install oracle jdk,setup $JAVA_HOME to /etc/profile
 function SETUP_ORACLEJDK()
 {
-    if [ !-f $(pwd)/jdk-6u45-linux-amd64.rpm ];then
+    if [[ ! -f $(pwd)/jdk-6u45-linux-amd64.rpm ]];then
 		echo -e "\e[31m Please check file [\e[31;1mjdk-6u45-linux-amd64.rpm\e[0m\e[31m].\e[0m" && exit
     fi
 	if [[ $(rpm -qa|grep "jdk") = "" ]];then
-		rpm -ivh $(pwd)/jdk-6u45-linux-amd64.rpm &>/dev/null && echo -e "\e[32m Oracle_JDK has been installed.\e[0m"
+		rpm -ivh $(pwd)/jdk-6u45-linux-amd64.rpm &>/dev/null && mv $(pwd)/jdk-6u45-linux-amd64.rpm /opt && echo -e "\e[32m Oracle_JDK has been installed.\e[0m"
 	fi
     cp -a /etc/profile /etc/profile_$(date +%Y%m%d%H%M%S)
     if [[ $(grep 'export JAVA_HOME=/usr/java/jdk1.6.0_45' /etc/profile) = "" ]];then
@@ -202,9 +202,7 @@ SETUP_ORACLEJDK
 function SETUP_TOMCAT6()
 {
     if [[ -f $(pwd)/apache-tomcat-6.0.45.tar.gz ]];then
-        tar zxvf $(pwd)/apache-tomcat-6.0.45.tar.gz -C /opt && mv $(pwd)/apache-tomcat-6.0.45.tar.gz /opt
-        echo '/opt/apache-tomcat-6.0.45/bin/startup.sh'>>/etc/rc.local
-        chmod +x /etc/rc.d/rc.local
+        tar zxvf $(pwd)/apache-tomcat-6.0.45.tar.gz -C /opt &>/dev/null && mv $(pwd)/apache-tomcat-6.0.45.tar.gz /opt
 cat>/opt/apache-tomcat-6.0.45/conf/tomcat-users.xml<<EOF
 <?xml version='1.0' encoding='utf-8'?>
 <tomcat-users>
@@ -219,7 +217,10 @@ EOF
     else
         echo -e "\e[31m Please check file [\e[31;1mapache-tomcat-6.0.45.tar.gz\e[0m\e[31m].\e[0m"
     fi
-#	/opt/apache-tomcat-6.0.45/bin/startup.sh
+	if [[ $(grep '/opt/apache-tomcat-6.0.45/bin/startup.sh' /etc/rc.local) = "" ]];then
+	echo '/opt/apache-tomcat-6.0.45/bin/startup.sh' >> /etc/rc.local
+	chmod +x /etc/rc.d/rc.local
+	fi
 #function end
 }
 SETUP_TOMCAT6
