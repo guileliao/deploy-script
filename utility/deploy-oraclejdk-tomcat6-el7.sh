@@ -38,7 +38,7 @@ function RENMAE_NIC()
 {
 	local _NICNAME=$(ip addr | grep "^2"|awk -F ": " '{print $2}')
 	if [[ ${_NICNAME} != "eth0" ]];then
-		echo -e "\e[31m The nic name is [\e[31;1m${_NICNAME}\e[0m].\n Press 'Enter' key rename nic name to 'eth0'.\e[0m"
+		echo -e "\e[31m The nic name is [\e[31;1m${_NICNAME}\e[0m\e[31m].\n Press 'Enter' key rename nic name to 'eth0'.\e[0m"
 		read -t 5
 		sed -i s/"^NAME=.*$"/"NAME=eth0"/g /etc/sysconfig/network-scripts/ifcfg-${_NICNAME}
 		sed -i s/"^DEVICE=.*$"/"DEVICE=eth0"/g /etc/sysconfig/network-scripts/ifcfg-${_NICNAME}
@@ -91,7 +91,7 @@ function CHECK_OS_VER()
 function CHECK_ACCOUNT()
 {
 	if [[ $(id -u) = "0" ]];then
-		echo -e "\e[32m You are [\e[0m\e[36;4mroot\e[0m\e[32m]. \e[0m"
+		echo -e "\e[32m You are [\e[0m\e[32;1mroot\e[0m\e[32m]. \e[0m"
 	else
 		echo -e "\e[31m Please use [\e[31;1mroot\e[0m] login.\e[0m" && exit
 	fi
@@ -138,7 +138,7 @@ function CHECK_FILE()
     elif [[ $(md5sum $1|awk '{print $1}') != "$2" ]];then
         echo -e "\e[31m Please check md5sum for [$1],and run me again. \e[0m" && exit
     else
-        echo -e "\e[32m [\e[0m\e[36;4m$1\e[0m\e[32m] is OK. \e[0m"
+        echo -e "\e[32m [\e[0m\e[32;1m$1\e[0m\e[32m] is OK. \e[0m"
     fi
 #function end
 }
