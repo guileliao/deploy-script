@@ -205,7 +205,7 @@ function SETUP_TOMCAT6()
         tar zxvf $(pwd)/apache-tomcat-6.0.45.tar.gz -C /opt && mv $(pwd)/apache-tomcat-6.0.45.tar.gz /opt
         echo '/opt/apache-tomcat-6.0.45/bin/startup.sh'>>/etc/rc.local
         chmod +x /etc/rc.d/rc.local
-cat>/opt/apache-tomcat-6.0.45/conf/tomcat-user.xml<<EOF
+cat>/opt/apache-tomcat-6.0.45/conf/tomcat-users.xml<<EOF
 <?xml version='1.0' encoding='utf-8'?>
 <tomcat-users>
   <role rolename="admin"/>
