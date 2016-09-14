@@ -181,13 +181,13 @@ function SETUP_ORACLEJDK()
         echo -e "\e[31m Please check file [\e[31;1mjdk-6u45-linux-amd64.rpm\e[0m\e[31m].\e[0m"
     fi
     cp -a /etc/profile /etc/profile_$(date +%Y%m%d%H%M%S)
-    if [[ $(grep 'export JAVA_HOME=/usr/java/jdk1.6.0_45') = "" ]];then
+    if [[ $(grep 'export JAVA_HOME=/usr/java/jdk1.6.0_45' /etc/profile) = "" ]];then
         echo 'export JAVA_HOME=/usr/java/jdk1.6.0_45'>>/etc/profile
     fi
-    if [[ $(grep 'export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/jre/lib/dt.jar') = "" ]];then
+    if [[ $(grep 'export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/jre/lib/dt.jar' /etc/profile) = "" ]];then
         echo 'export CLASSPATH=.:$JAVA_HOME/lib/tools.jar:$JAVA_HOME/jre/lib/dt.jar'>>/etc/profile
     fi
-    if [[ $(grep 'export PATH=$JAVA_HOME/bin:$PATH') = "" ]];then
+    if [[ $(grep 'export PATH=$JAVA_HOME/bin:$PATH' /etc/profile) = "" ]];then
         echo 'export PATH=$JAVA_HOME/bin:$PATH'>>/etc/profile
     fi
 #function end
