@@ -175,11 +175,12 @@ OS_CHECK
 #install oracle jdk,setup $JAVA_HOME to /etc/profile
 function SETUP_ORACLEJDK()
 {
-    if [[ -f $(pwd)/jdk-6u45-linux-amd64.rpm ]];then
-        rpm -ivh $(pwd)/jdk-6u45-linux-amd64.rpm &>/dev/null && echo -e "\e[32m Oracle_JDK has been installed.\e[0m"
-    else
-        echo -e "\e[31m Please check file [\e[31;1mjdk-6u45-linux-amd64.rpm\e[0m\e[31m].\e[0m"
+    if [[ !-f $(pwd)/jdk-6u45-linux-amd64.rpm ]];then
+		echo -e "\e[31m Please check file [\e[31;1mjdk-6u45-linux-amd64.rpm\e[0m\e[31m].\e[0m" && exit
     fi
+	if [[ $(rpm -qa|grep "jdk") = "" ]];then
+		rpm -ivh $(pwd)/jdk-6u45-linux-amd64.rpm &>/dev/null && echo -e "\e[32m Oracle_JDK has been installed.\e[0m"
+	fi
     cp -a /etc/profile /etc/profile_$(date +%Y%m%d%H%M%S)
     if [[ $(grep 'export JAVA_HOME=/usr/java/jdk1.6.0_45' /etc/profile) = "" ]];then
         echo 'export JAVA_HOME=/usr/java/jdk1.6.0_45'>>/etc/profile
@@ -218,7 +219,7 @@ EOF
     else
         echo -e "\e[31m Please check file [\e[31;1mapache-tomcat-6.0.45.tar.gz\e[0m\e[31m].\e[0m"
     fi
-	/opt/apache-tomcat-6.0.45/bin/startup.sh
+#	/opt/apache-tomcat-6.0.45/bin/startup.sh
 #function end
 }
 SETUP_TOMCAT6
@@ -260,7 +261,7 @@ while true;
         esac
     done
 }
-echo -e "\e[31m Press 'Enter' key reboot.\e[0m"
+echo -e "\e[31m Press 'Enter' key reboot,or 'Ctrl+C' exit.\e[0m"
 read
 reboot
 
