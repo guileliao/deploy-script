@@ -175,7 +175,7 @@ OS_CHECK
 #install oracle jdk,setup $JAVA_HOME to /etc/profile
 function SETUP_ORACLEJDK()
 {
-    if [[ !-f $(pwd)/jdk-6u45-linux-amd64.rpm ]];then
+    if [ !-f $(pwd)/jdk-6u45-linux-amd64.rpm ];then
 		echo -e "\e[31m Please check file [\e[31;1mjdk-6u45-linux-amd64.rpm\e[0m\e[31m].\e[0m" && exit
     fi
 	if [[ $(rpm -qa|grep "jdk") = "" ]];then
