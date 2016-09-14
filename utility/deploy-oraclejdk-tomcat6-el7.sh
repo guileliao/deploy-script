@@ -160,7 +160,7 @@ function OS_CHECK()
 	SET_SELINUX
 	RENMAE_NIC
 	echo -e "\e[32m My IPaddress is [\e[0m\e[32;1m$(hostname -I)\e[0m\b\e[32m].\e[0m"
-	echo -e "\e[32m My hostname is [\e[0m\e[32;1m$(hostname) \e[0m\e[32m].\e[0m"
+	echo -e "\e[32m My hostname is [\e[0m\e[32;1m$(hostname)\e[0m\e[32m].\e[0m"
 	echo -e "\e[32m My gateway is [\e[0m\e[32;1m$(ip route list|grep "default"|awk '{print $3}')\e[0m\e[32m].\e[0m"
 	CHECK_NETWORK
 	CHECK_FILE jdk-6u45-linux-amd64.rpm 518e6673f3f07e87bbef3e83f287b5f8
