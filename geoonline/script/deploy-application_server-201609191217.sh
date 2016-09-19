@@ -211,7 +211,7 @@ $(hostname -I)	appserver
 192.168.122.40  monsrv.gfstack.geo
 192.168.122.50	omgr.gfstack.geo
 192.168.122.50	portal.gfstack.geo
-192.168.122.70	cas.gfstack.geo
+#192.168.122.70	cas.gfstack.geo
 192.168.122.80	geoonline.gfstack.geo
 #192.168.122.90	lb.gfstack.geo
 EOF
