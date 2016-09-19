@@ -9,14 +9,15 @@
 # Copyleft: Licensed under the GPLv3
 #
 #
-# The warning message: color=red
-# The correct message: color=green
-# The information: color=yellow
-# The menu: color=blue
-# The keyword: color&highlighted 
-# The global variable: _VARIABLE_NAME_
-# The local variable: _VARIABLE_NAME
-# The function: FUNCITON_NAME()
+# The warning message: color=red[31m]
+# The correct message: color=green[32m]
+# The information: color=yellow[33m]
+# The menu: color=blue[34;1m]
+# The keyword: color&highlighted[1m]
+# The global variable name: _VARIABLE_NAME_
+# The local variable name: _VARIABLE_NAME
+# Usage variable: ${VARIABLE_NAME}
+# The function name: FUNCITON_NAME()
 #
 #==========
 #set myself
