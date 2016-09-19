@@ -28,11 +28,11 @@ set -u
 
 
 #===============
-#public_function
+#atomic_function
 #===============
 #
 #-----------------------
-#public_function_name_01
+#atomic_function_name_01
 #-----------------------
 #note
 function FUNCTION_NAME_01()
@@ -42,7 +42,7 @@ function FUNCTION_NAME_01()
 }
 
 #-----------------------
-#public_function_name_02
+#atomic_function_name_02
 #-----------------------
 #note
 function FUNCTION_NAME_02()
