@@ -13,7 +13,7 @@
 #set myself
 #==========
 #
-set -u
+#set -u
 #set -e
 
 
@@ -505,6 +505,8 @@ function SETUP_BUILDING()
 	else
 		echo -e "\e[31m What are you doing? \e[0m" && exit 0
 	fi
+	unset local _YOURNAME
+	unset local _YN
 }
 SETUP_BUILDING
 
