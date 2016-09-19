@@ -3,7 +3,7 @@
 # Filename: deploy_application_server.sh 
 # Features: initialize OS and deploy container for application server.
 # Version: 1.0
-# Buildtime: 201609071212
+# Buildtime: 201609191217
 # Editor: guile.liao
 # Email: liaolei@geostar.com.cn
 # Copyleft: Licensed under the GPLv3
@@ -13,7 +13,7 @@
 #set myself
 #==========
 #
-#set -u
+set -u
 #set -e
 
 
@@ -132,7 +132,7 @@ function CREATE_REPO_SERVER()
 	CHECK_FILE activemq-cpp-3.8.3-1.el7.x86_64.rpm c4900906e1cfff8a7a310694686e80be
 	CHECK_FILE setupdb-server.tar.bz2 5b30cab71ea3261215bdb9b276c254b0
 	CHECK_FILE mcsrv-server.tar.bz2 5ba170998e7f7b665847c3f40e1adaca
-	CHECK_FILE owncloud-server.tar.bz2 cd8c0fae43b85460a98e2558016d2881
+#	CHECK_FILE owncloud-server.tar.bz2 cd8c0fae43b85460a98e2558016d2881
 	CHECK_FILE geostack-server.tar.bz2 93ee53b9e280f2d29d29f9701f20b0e6
 	CHECK_FILE monsrv-server.tar.bz2 b17a4f61a510b289e317f2188536260c
 	CHECK_FILE mqsrv-server.tar.bz2 635de0e65c11036371dbd638174ed567
@@ -206,7 +206,7 @@ $(hostname -I)	appserver
 192.168.122.10	db-exte.gfstack.geo
 192.168.122.10	db-inte.gfstack.geo
 192.168.122.20	mcsrv.gfstack.geo
-192.168.122.60	owncloud.gfstack.geo
+#{IPADDRESS}	owncloud.gfstack.geo
 192.168.122.30	mqsrv.gfstack.geo
 192.168.122.40  monsrv.gfstack.geo
 192.168.122.50	omgr.gfstack.geo
@@ -329,13 +329,13 @@ fi
 #owncloud
 #--------
 #
-if [[ $(iptables -t nat -L|grep "DNAT.*60:80") = "" ]];then
-	iptables --table nat --append PREROUTING --in-interface ${_NICNAME_} --protocol tcp --dport 8082 --jump DNAT --to-destination 192.168.122.60:80
-fi
+#if [[ $(iptables -t nat -L|grep "DNAT.*60:80") = "" ]];then
+#	iptables --table nat --append PREROUTING --in-interface ${_NICNAME_} --protocol tcp --dport 8082 --jump DNAT --to-destination 192.168.122.60:80
+#fi
 
-if [[ $(iptables -t nat -L|grep "DNAT.*60:22") = "" ]];then
-	iptables --table nat --append PREROUTING --in-interface ${_NICNAME_} --protocol tcp --dport 2260 --jump DNAT --to-destination 192.168.122.60:22
-fi
+#if [[ $(iptables -t nat -L|grep "DNAT.*60:22") = "" ]];then
+#	iptables --table nat --append PREROUTING --in-interface ${_NICNAME_} --protocol tcp --dport 2260 --jump DNAT --to-destination 192.168.122.60:22
+#fi
 
 #---
 #cas
@@ -477,7 +477,7 @@ EOF
 echo -e "\e[33m 1GB = 1024MB = 1048576KB \e[0m"
 DEPLOY_CONTAINER setupdb-server 8388608
 DEPLOY_CONTAINER mcsrv-server 4194304
-DEPLOY_CONTAINER owncloud-server 8388608
+#DEPLOY_CONTAINER owncloud-server 8388608
 DEPLOY_CONTAINER geostack-server 8388608
 DEPLOY_CONTAINER monsrv-server 4194304
 DEPLOY_CONTAINER mqsrv-server 8388608
@@ -498,9 +498,9 @@ function SETUP_BUILDING()
 	echo -e "$(date +%Y%m%d%H%M)\n${_YOURNAME}" > /BUILDING
 	read -p "Restart computer?[yes|no]" _YN
 
-	if [[ ${_YN_} = "yes" || ${_YN1_} = "YES" ]];then
+	if [[ ${_YN} = "yes" || ${_YN} = "YES" ]];then
 		reboot
-	elif [[ ${_YN_} = "no" || ${_YN1_} = "NO" ]];then
+	elif [[ ${_YN} = "no" || ${_YN} = "NO" ]];then
 		echo -e "\e[31m What are you doing? \e[0m" && exit 0
 	else
 		echo -e "\e[31m What are you doing? \e[0m" && exit 0
