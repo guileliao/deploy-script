@@ -414,7 +414,7 @@ cat>${_IMAGE_PATH}/xml_lxc/$1-server.xml<<EOF
 </domain>
 EOF
 	if [[ ! -f ${_IMAGE_PATH}/template/$1-server.tar.bz2 ]];then
-		echo -e "\e[31m [$1-server.tar.bz2] does not exist,upload it and run me again.\n upload path:${_IMAGE_PATH}\e[0m" && exit 0
+		echo -e "\e[31m [$1-server.tar.bz2] does not exist,upload it and run me again.\n upload path:${_IMAGE_PATH}/template\e[0m" && exit 0
 	else
 		tar jxvf ${_IMAGE_PATH}/template/$1-server.tar.bz2 -C ${_IMAGE_PATH}/ &>/dev/null
 	fi
